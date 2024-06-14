@@ -25,6 +25,12 @@ function App() {
         }
     };
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
     return (
         <div className="App">
             <h1>Dictionary App</h1>
@@ -33,6 +39,7 @@ function App() {
                 placeholder="Search for a word..." 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={handleKeyDown} // Trigger search on Enter key press
             />
             <button onClick={handleSearch}>Search</button>
             <p>Definition: <span>{definition}</span></p>
